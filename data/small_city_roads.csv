@@ -1,0 +1,8 @@
+from,to,distance_km,time_min,traffic
+0,1,2.0,6,medium
+0,3,3.5,10,medium
+1,2,2.0,6,high
+1,4,1.5,5,high
+3,4,1.0,3,low
+4,5,2.0,6,medium
+2,5,4.0,12,medium

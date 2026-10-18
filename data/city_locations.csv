@@ -1,0 +1,26 @@
+id,name,type,x,y
+0,Railway Station,landmark,10,50
+1,Sindhi Camp Bus Stand,landmark,16,42
+2,MI Road Junction,junction,25,48
+3,SMS Hospital,hospital,34,55
+4,Ajmeri Gate,junction,30,40
+5,Badi Chaupar,junction,42,35
+6,Chandpole Gate,landmark,36,29
+7,Civil Lines Junction,junction,17,60
+8,Sodala Junction,junction,8,68
+9,Mansarovar Metro Station,landmark,5,83
+10,Jaipur Junction Metro Station,landmark,14,52
+11,Rajasthan University,landmark,63,61
+12,JLN Marg Junction,junction,53,57
+13,Fortis Hospital Jaipur,hospital,75,69
+14,EHCC Hospital,hospital,83,78
+15,Kukas Road Junction,junction,91,47
+16,Malviya Nagar Market,market,68,50
+17,Gopalpura Bypass Junction,junction,34,78
+18,Jaipur International Airport,landmark,57,88
+19,Maharaja College,landmark,52,64
+20,Tonk Road Junction,junction,45,72
+21,Raja Park Market,market,65,39
+22,Kanakpura Junction,junction,4,38
+23,Khatipura Junction,junction,20,76
+24,Jaipur Dental Hospital,hospital,47,82
