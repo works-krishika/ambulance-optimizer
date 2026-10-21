@@ -1,0 +1,35 @@
+graph,V,E,algorithm,avg_ms,relaxations,total_ops
+sparse,100,287,Dijkstra (heap),0.338,574,1914
+sparse,100,287,Dijkstra (array),0.443,574,10574
+sparse,100,287,Bellman-Ford,0.597,2633,2638
+sparse,500,1493,Dijkstra (heap),2.23,2986,13589
+sparse,500,1493,Dijkstra (array),7.627,2986,252986
+sparse,500,1493,Bellman-Ford,4.007,15855,15861
+sparse,1000,2991,Dijkstra (heap),4.818,5982,30155
+sparse,1000,2991,Dijkstra (array),29.015,5982,1005982
+sparse,1000,2991,Bellman-Ford,8.949,36595,36602
+sparse,2000,5990,Dijkstra (heap),9.993,11980,65548
+sparse,2000,5990,Dijkstra (array),111.559,11980,4011980
+sparse,2000,5990,Bellman-Ford,21.085,85177,85185
+sparse,5000,14989,Dijkstra (heap),27.78,29978,182559
+sparse,5000,14989,Dijkstra (array),700.478,29978,25029978
+sparse,10000,29988,Dijkstra (heap),63.417,59976,394942
+sparse,10000,29988,Dijkstra (array),2829.272,59976,100059976
+dense,100,973,Dijkstra (heap),0.757,1946,4292
+dense,100,973,Dijkstra (array),0.731,1946,11946
+dense,100,973,Bellman-Ford,1.186,5612,5615
+dense,200,3775,Dijkstra (heap),2.444,7550,14065
+dense,200,3775,Dijkstra (array),2.761,7550,47550
+dense,200,3775,Bellman-Ford,5.973,29211,29215
+dense,400,14810,Dijkstra (heap),8.889,29620,47907
+dense,400,14810,Dijkstra (array),11.122,29620,189620
+dense,400,14810,Bellman-Ford,25.723,116454,116458
+dense,800,58556,Dijkstra (heap),35.365,117112,162174
+dense,800,58556,Dijkstra (array),47.209,117112,757112
+dense,800,58556,Bellman-Ford,82.654,349270,349273
+dense,1200,131476,Dijkstra (heap),91.891,262952,339543
+dense,1200,131476,Dijkstra (array),124.813,262952,1702952
+dense,1200,131476,Bellman-Ford,337.579,1048066,1048070
+dense,1600,233175,Dijkstra (heap),163.83,466350,573050
+dense,1600,233175,Dijkstra (array),224.668,466350,3026350
+dense,1600,233175,Bellman-Ford,447.234,1395246,1395249
