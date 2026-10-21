@@ -32,13 +32,19 @@ class Graph:
         self.adj[u][v] = road
         self.adj[v][u] = road
 
-    def _add_road_keep_shorter(self, u, v, d, t, traffic, where=""):
-        """Add a road; if it already exists keep the shorter one and warn."""
+    def add_road_keep_shorter(self, u, v, d, t, traffic="low", where=""):
+        """Add a road; if it already exists keep the shorter one and warn.
+
+        Public method (used by load_from_csv, from_table and the UI).
+        """
         if u in self.adj and v in self.adj[u]:
             print(f"Warning: {where} duplicate road {u}-{v}, keeping the shorter one")
             if self.adj[u][v]["distance"] <= d:
                 return
         self.add_road(u, v, d, t, traffic)
+
+    # kept so older code that used the private name still works
+    _add_road_keep_shorter = add_road_keep_shorter
 
     # ---------- blocked roads ----------
     def block_road(self, u, v):
@@ -120,23 +126,44 @@ def load_from_csv(locations_path, roads_path, require_hospital=True):
                 raise ValueError(f"{roads_path} line {n}: negative distance or time")
             if traffic not in TRAFFIC_FACTOR:
                 raise ValueError(f"{roads_path} line {n}: unknown traffic '{traffic}'")
-            g._add_road_keep_shorter(u, v, d, t, traffic, where=f"{roads_path} line {n}:")
+            g.add_road_keep_shorter(u, v, d, t, traffic, where=f"{roads_path} line {n}:")
 
     if require_hospital and not g.hospitals():
         raise ValueError("City has no hospital")
     return g
 
 
-def from_table(rows):
-    """Build a graph from (from, to, distance, time, traffic) tuples.
+def from_table(rows, locations=None, require_hospital=False):
+    """Build a graph from tables typed into the UI (Student 3).
 
-    Used by the UI (Student 3). Missing locations are created automatically
-    with the id as their name.
+    rows      : (from, to, distance, time, traffic) tuples, one per road.
+    locations : optional (id, name, type, x, y) tuples. Needed if the user
+                wants to mark hospitals; type must be hospital, junction or
+                landmark. Locations that appear only in `rows` are created
+                automatically as junctions named after their id.
+    require_hospital : raise ValueError if the city has no hospital.
+
+    Raises ValueError with a clear message on invalid input.
     """
     g = Graph()
-    for u, v, d, t, traffic in rows:
+    for i, (lid, name, ltype, x, y) in enumerate(locations or [], start=1):
+        ltype = str(ltype).strip().lower()
+        if lid in g.locations:
+            raise ValueError(f"location row {i}: duplicate id {lid}")
+        if not str(name).strip():
+            raise ValueError(f"location row {i}: empty name")
+        if ltype not in VALID_TYPES:
+            raise ValueError(f"location row {i}: unknown type '{ltype}'")
+        g.add_location(lid, str(name).strip(), ltype, float(x), float(y))
+    for i, (u, v, d, t, traffic) in enumerate(rows, start=1):
         for node in (u, v):
             if node not in g.locations:
                 g.add_location(node, str(node))
-        g._add_road_keep_shorter(u, v, float(d), float(t), str(traffic).strip().lower())
+        try:
+            g.add_road_keep_shorter(u, v, float(d), float(t),
+                                    str(traffic).strip().lower(), where=f"road row {i}:")
+        except ValueError as e:
+            raise ValueError(f"road row {i}: {e}")
+    if require_hospital and not g.hospitals():
+        raise ValueError("City has no hospital")
     return g

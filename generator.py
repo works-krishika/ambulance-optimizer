@@ -15,7 +15,8 @@ def generate_city(n, extra_edges_per_node=2, n_hospitals=5, seed=42):
     g = Graph()
     for i in range(n):
         g.add_location(i, f"L{i}", "junction", rng.random() * 100, rng.random() * 100)
-    for h in rng.sample(range(n), min(n_hospitals, n)):
+    n_hosp = min(n_hospitals, max(1, n // 10))   # keep hospitals a small share of the city
+    for h in rng.sample(range(n), n_hosp):
         g.locations[h]["type"] = "hospital"
 
     def rand_road(u, v):
