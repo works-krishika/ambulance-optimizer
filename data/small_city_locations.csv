@@ -1,0 +1,7 @@
+id,name,type,x,y
+0,Railway Station,landmark,10,40
+1,MI Road Junction,junction,25,40
+2,City Hospital,hospital,40,45
+3,Bus Stand,landmark,15,65
+4,Market Junction,junction,35,65
+5,Central Hospital,hospital,55,65

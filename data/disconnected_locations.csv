@@ -1,0 +1,5 @@
+id,name,type,x,y
+0,A,junction,0,0
+1,B,junction,1,0
+2,C,junction,2,0
+3,D Hospital,hospital,3,0
