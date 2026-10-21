@@ -35,7 +35,7 @@ def draw_city(g, path=None, title="", settled=None, label_roads=True,
             x = [g.locations[u]["x"], g.locations[v]["x"]]
             y = [g.locations[u]["y"], g.locations[v]["y"]]
             if frozenset((u, v)) in blocked:
-                ax.plot(x, y, "r--", lw=1.5, zorder=1)
+                ax.plot(x, y, "r--", lw=3, zorder=4)
             elif (u, v) in on_path or (v, u) in on_path:
                 ax.plot(x, y, color="orange", lw=4, zorder=2)
             else:
