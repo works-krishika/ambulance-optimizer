@@ -65,7 +65,7 @@ def draw_city(g, path=None, title="", settled=None, label_roads=True,
         Line2D([], [], color="red", ls="--", label="Blocked road"),
         Line2D([], [], color="lightgray", lw=1, label="Road"),
     ]
-    ax.legend(handles=handles, loc="upper left", fontsize=7, framealpha=0.9)
+    ax.legend(handles=handles, loc="lower right", fontsize=7, framealpha=0.9)
     ax.set_title(title)
     ax.axis("off")
     fig.tight_layout()
